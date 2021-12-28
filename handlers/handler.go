@@ -21,6 +21,9 @@ func Handlers() {
 	router.HandleFunc("/profile", middlew.ChequeoDB(middlew.ValidateJWT(routers.Profile))).Methods("GET")
 	router.HandleFunc("/edit", middlew.ChequeoDB(middlew.ValidateJWT(routers.Edit))).Methods("PUT")
 
+	router.HandleFunc("/upload/avatar", middlew.ChequeoDB(middlew.ValidateJWT(routers.UploadAvatar))).Methods("POST")
+	router.HandleFunc("/get/avatar", middlew.ChequeoDB(middlew.ValidateJWT(routers.GetAvatar))).Methods("GET")
+
 	//Tweets
 	router.HandleFunc("/tweet", middlew.ChequeoDB(middlew.ValidateJWT(routers.SaveTweet))).Methods("POST")
 	router.HandleFunc("/get/tweets", middlew.ChequeoDB(middlew.ValidateJWT(routers.GetTweets))).Methods("GET")
